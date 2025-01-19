@@ -1,19 +1,51 @@
-#Requirements
-The application should run from the command line, accept user actions and inputs as arguments, and store the tasks in a JSON file. The user should be able to:
+# Task Tracker CLI
+Task Tracker CLI is a command-line application that helps you manage your tasks efficiently. You can add, update, delete, and track tasks with ease. All tasks are stored in a JSON file for persistence.
+## Features
+- Add, update, and delete tasks
+- Mark tasks as in progress or done
+- List tasks by status (todo, in-progress, done)
+- Store tasks in a JSON file
+## Prerequisites
+- Java JDK 8 or higher
+- IntelliJ IDEA or any Java IDE
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/username/task-tracker-cli.git
+   ```
+2. Open the project in IntelliJ IDEA.
+3. Build the project to ensure all dependencies are resolved.
+## Usage
+Run the application using the following commands:
 
-Add, Update, and Delete tasks
-Mark a task as in progress or done
-List all tasks
-List all tasks that are done
-List all tasks that are not done
-List all tasks that are in progress
-
-#Here are some constraints to guide the implementation:
-
-You can use any programming language to build this project.
-Use positional arguments in command line to accept user inputs.
-Use a JSON file to store the tasks in the current directory.
-The JSON file should be created if it does not exist.
-Use the native file system module of your programming language to interact with the JSON file.
-Do not use any external libraries or frameworks to build this project.
-Ensure to handle errors and edge cases gracefully.
+- Add a task:
+  ```bash
+  task-cli add "Buy groceries"
+  ```
+- Update a task:
+  ```bash
+  task-cli update 1 "Buy groceries and cook dinner"
+  ```
+- Delete a task:
+  ```bash
+  task-cli delete 1
+  ```
+- List tasks by status:
+  ```bash
+  task-cli list done
+  task-cli list todo
+  task-cli list in-progress
+  ```
+## Project Structure
+task-tracker-cli
+├── src
+│   └── Main.java    # Entry point for the application
+├── tasks.json       # Stores tasks data
+└── README.md        # Project documentation
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
+## License
+This project is licensed under the MIT License.
+## Acknowledgments
+- [Gson](https://github.com/google/gson) for JSON serialization
+- Stack Overflow for problem-solving tips
