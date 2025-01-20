@@ -4,20 +4,16 @@ import java.util.List;
 
 
 public class Main {
-    public static void main(String[] args)
+    private static void validateStatus(String status)
     {
-        List<Task> tasks=new ArrayList<>();
-        Task newTask=new Task(1,"","In_progress");
-        Task newTask1=new Task(2,"Buy Groceries 1","In_progress");
-        Task newTask2=new Task(3,"Buy Groceries 2","Done");
-        Task newTask3=new Task(4,"Buy Groceries 3","ToDo");
-        tasks.add(newTask);
-        tasks.add(newTask1);
-        tasks.add(newTask2);
-        tasks.add(newTask3);
-        FileUtil fu=new FileUtil();
-        fu.saveTaskToFile(tasks);
-        listTasks(tasks);
+        try
+        {
+            TaskStatus taskStatus=TaskStatus.fromString(status);
+            System.out.println("Valid status"+taskStatus.getStatus());
+        }
+        catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
     public static void listTasks(List<Task> tasks)
     {
@@ -26,8 +22,31 @@ public class Main {
             System.out.println("ID: "+task.getId()+",DEscription: "+task.getDescription()+",Status:"+task.getStatus());
         }
     }
-    public void addTask(Task task)
+    public static void main(String[] args)
     {
+        List<Task> tasks=FileUtil.readTaskfile();
 
+        String status1 = "In_progress";
+        String status2 = "Done";
+        String status3 = "ToDo";
+
+        validateStatus(status1);
+        validateStatus(status2);
+        validateStatus(status3);
+//
+//        Task newTask=new Task(1,"something","In_progress");
+//        Task newTask1=new Task(2,"Buy Groceries 1","In_progress");
+//        Task newTask2=new Task(3,"Buy Groceries 2","Done");
+//        Task newTask3=new Task(4,"Buy Groceries 3","ToDo");
+
+//        tasks.add(newTask);
+//        tasks.add(newTask1);
+//        tasks.add(newTask2);
+//        tasks.add(newTask3);
+        FileUtil fu=new FileUtil();
+        fu.saveTaskToFile(tasks);
+        listTasks(tasks);
     }
+
+
 }
