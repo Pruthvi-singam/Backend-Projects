@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args)
     {
         List<Task> tasks=new ArrayList<>();
-        Task newTask=new Task(1,"Buy Groceries");
-        Task newTask1=new Task(2,"Buy Groceries 1");
-        Task newTask2=new Task(3,"Buy Groceries 2");
-        Task newTask3=new Task(4,"Buy Groceries 3");
+        Task newTask=new Task(1,"Buy Groceries","In_progress");
+        Task newTask1=new Task(2,"Buy Groceries 1","In_progress");
+        Task newTask2=new Task(3,"Buy Groceries 2","Done");
+        Task newTask3=new Task(4,"Buy Groceries 3","ToDo");
         tasks.add(newTask);
         tasks.add(newTask1);
         tasks.add(newTask2);
@@ -23,7 +23,7 @@ public class Main {
     {
         for(Task task:tasks)
         {
-            System.out.println("ID: "+task.getId()+",DEscription: "+task.getDescription());
+            System.out.println("ID: "+task.getId()+",DEscription: "+task.getDescription()+",Status:"+task.getStatus());
         }
     }
     public void addTask(Task task)

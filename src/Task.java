@@ -48,14 +48,15 @@ public class Task
         this.status = status;
     }
 
-    public Task(int id, String Description)
+    public Task(int id, String Description,String status)
     {
         this.id=id;
         this.Description=Description;
-        this.status="todo";
+        this.status=status;
     }
     public String toString()
     {
-        return "Task{id=" +id+",name='"+Description+"'}";
+
+        return "Task{id=" +id+",name='"+Description+"Status="+status+"'}";
     }
 }
