@@ -50,6 +50,14 @@ public class Task
 
     public Task(int id, String Description,String status)
     {
+        if(Description==null||Description.isEmpty())
+        {
+            throw new IllegalArgumentException("Description Cannot be empty");
+        }
+        if(status ==null||status.isEmpty())
+        {
+            throw new IllegalArgumentException("Status cannot be Empty");
+        }
         this.id=id;
         this.Description=Description;
         this.status=status;
