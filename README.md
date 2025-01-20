@@ -19,4 +19,4 @@ Welcome to my Backend Projects repository. Below is a list of projects that I am
 ## Future Plans
 - More backend projects coming soon.
 
-Feel free to explore each project and contribute!
+Feel free to explore each project !
