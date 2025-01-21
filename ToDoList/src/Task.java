@@ -65,6 +65,6 @@ public class Task
     public String toString()
     {
 
-        return "Task{id=" +id+",name='"+Description+"Status="+status+"'}";
+        return "Task{id=" +id+",name='"+Description+"' ,Status='"+status+"'}";
     }
 }
