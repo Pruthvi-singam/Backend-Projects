@@ -5,6 +5,26 @@ import java.util.Scanner;
 
 
 public class Main {
+    private static void searchTasksByStatus(List<Task> tasks, Scanner scanner) {
+        System.out.print("Enter status to search (ToDo/InProgress/Done): ");
+        String status = scanner.nextLine();
+
+        List<Task> filteredTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.getStatus().equalsIgnoreCase(status)) {
+                filteredTasks.add(task);
+            }
+        }
+
+        if (filteredTasks.isEmpty()) {
+            System.out.println("No tasks found with status: " + status);
+        } else {
+            System.out.println("Tasks with status '" + status + "':");
+            for (Task task : filteredTasks) {
+                System.out.println(task);
+            }
+        }
+    }
     private static Task findTaskById(List<Task> tasks,int id)
     {
         for(Task task:tasks)
@@ -26,6 +46,16 @@ public class Main {
         catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+    }
+    private static void addTask(List<Task> tasks,Scanner input)
+    {
+        System.out.println("Enter task Description: ");
+        String description=input.nextLine();
+        System.out.println("Enter task status (ToDo/InProgress/Done): ");
+        String status=input.nextLine();
+        int id=tasks.size()+1;
+        tasks.add(new Task(id,description,status));
+        System.out.println("Task added successfully.");
     }
     public static void update(List<Task> tasks,Scanner input)
     {
@@ -90,40 +120,16 @@ public class Main {
             switch(choice)
             {
                 case 1->listTasks(tasks);
-                case 2->System.out.println("comming soon");
+                case 2->addTask(tasks,input);
                 case 3->update(tasks,input);
                 case 4->deleteTask(tasks,input);
+                case 5->searchTasksByStatus(tasks,input);
                 default -> throw new IllegalStateException("Unexpected value: " + choice);
             }
         }while(choice!=6);
 
-            String status1 = "In_progress";
-        String status2 = "Done";
-        String status3 = "ToDo";
 
-//        validateStatus(status1);
-//        validateStatus(status2);
-//        validateStatus(status3);
 //
-//        Task newTask=new Task(1,"something","In_progress");
-//        Task newTask1=new Task(2,"Buy Groceries 1","In_progress");
-//        Task newTask2=new Task(3,"Buy Groceries 2","Done");
-//        Task newTask3=new Task(4,"Buy Groceries 3","ToDo");
-//
-//        tasks.add(newTask);
-//        tasks.add(newTask1);
-//        tasks.add(newTask2);
-//        tasks.add(newTask3);
-
-        FileUtil fu=new FileUtil();
-//        fu.saveTaskToFile(tasks);
-//        listTasks(tasks);
-////        System.out.println();
-////        update(tasks,1);
-//        deleteTask(tasks,3);
-////        fu.saveTaskToFile(tasks);
-////        System.out.println();
-//        listTasks(tasks);
     }
 
 
