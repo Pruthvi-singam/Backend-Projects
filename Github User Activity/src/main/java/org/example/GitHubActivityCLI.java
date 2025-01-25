@@ -5,17 +5,19 @@ import java.util.Scanner;
 
 public class GitHubActivityCLI {
     public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        System.out.print("Enter a GitHub username: ");
-        String githubUserName=sc.nextLine();
+        if (args.length == 0) {
+            System.out.println("Usage: java GitHubActivityCLI <GitHubUsername>");
+            return;
+        }
+        String username = args[0];
         GithuvService service=new GithuvService();
         try
         {
-            String response=service.fetActivity(githubUserName);
+            String response=service.fetActivity(username);
             List<GItHubEvent> events=JsonParserUtil.parseEvents(response);
             if(events.isEmpty())
             {
-                System.out.println("no events activity forund for user:"+githubUserName);
+                System.out.println("no events activity forund for user:"+username);
             }
             else
             {
