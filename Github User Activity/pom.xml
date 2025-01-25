@@ -8,12 +8,24 @@
     <artifactId>Github_User_Activity</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
-        <!-- Example Dependency -->
+    <!-- Example Dependency -->
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter</artifactId>
+        <version>3.1.1</version>
+    </dependency>
+    <!-- GitHub API Dependency -->
+    <dependency>
+        <groupId>org.kohsuke</groupId>
+        <artifactId>github-api</artifactId>
+        <version>1.313</version>
+    </dependency>
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-            <version>3.1.1</version>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20210307</version>
         </dependency>
+
     </dependencies>
 
     <properties>
