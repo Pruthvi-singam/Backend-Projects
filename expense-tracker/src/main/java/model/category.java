@@ -1,8 +1,16 @@
 package model;
 
 import jakarta.persistence.*;
-import lombok.*
+import lombok.*;
 
-
+@Entity
+@Table(name="categories")
+@Getter @Setter@NoArgsConstructor@AllArgsConstructor
 public class category {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(nullable = false,unique = false)
+    private String name;
 }
